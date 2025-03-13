@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="pinblooms_country_group" resource="default" engine="innodb" comment="Country Based Group">
+        <column xsi:type="int" name="group_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Group ID"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="255" default="0" comment="Name"/>
+        <column xsi:type="varchar" name="amount" nullable="true" length="255" default="0" comment="Amount"/>
+        <column xsi:type="varchar" name="country_id" nullable="true" length="255" default="0" comment="Country ID"/>
+        <column xsi:type="varchar" name="region_id" nullable="true" length="255" default="0" comment="Region ID"/>
+        <column name="status" xsi:type="smallint" nullable="true" comment="Status"/>        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="group_id"/>
+        </constraint>        
+        <index referenceId="PINBLOOMS_COUNTRY_GROUP_GROUP_ID_IDX">
+            <column name="group_id"/>
+        </index>
+    </table>
+</schema>

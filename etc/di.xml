@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <!--    For Group     -->
+    <virtualType name="PinBloomsCountryGroupFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="PinBloomsCountryGroupFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">PinBlooms\CountryBasedShipping\Model\ResourceModel\Group\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">PinBloomsCountryGroupFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="PinBlooms\CountryBasedShipping\Model\ResourceModel\Group\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">pinblooms_country_group</argument>
+            <argument name="eventPrefix" xsi:type="string">pinblooms_country_group_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">group_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">PinBlooms\CountryBasedShipping\Model\ResourceModel\Group</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="pinblooms_country_group_listing_data_source" xsi:type="string">PinBlooms\CountryBasedShipping\Model\ResourceModel\Group\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="PinBlooms\CountryBasedShipping\Ui\Component\MassAction\Status\Options">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">*/*/massStatus</item>
+                <item name="paramName" xsi:type="string">status</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="title" xsi:type="string" translatable="true">Change Status</item>
+                    <item name="message" xsi:type="string" translatable="true">Are you sure to change selected record status?</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="save_custom_fee_in_quote" type="PinBlooms\CountryBasedShipping\Plugin\Checkout\Model\ShippingInformationManagement" sortOrder="1"/>
+    </type>
+
+</config>

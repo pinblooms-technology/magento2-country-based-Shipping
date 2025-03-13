@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+   <menu>
+    	<add id="PinBlooms_CountryBasedShipping::view" title="Country Based Fee" module="PinBlooms_CountryBasedShipping" sortOrder="50" resource="PinBlooms_CountryBasedShipping::view"/>
+
+        <add id="PinBlooms_CountryBasedShipping::menu" title="Manage Country Group" module="PinBlooms_CountryBasedShipping" sortOrder="20" parent="PinBlooms_CountryBasedShipping::view" action="countrygroup/index/index" resource="PinBlooms_CountryBasedShipping::menu"/>
+    </menu>
+</config>
