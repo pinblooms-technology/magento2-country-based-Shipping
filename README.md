@@ -1,13 +1,12 @@
 # Magento 2 - Country Based Shipping Fee
 
 ## Overview
-**PinBlooms_CountryBasedShipping** is a Magento 2 module that allows store owners to define shipping fees based on customer country, region, or specific criteria. This module enables flexible and customizable shipping rules to enhance checkout experience.
+
+**PinBlooms_CountryBasedShipping** is a Magento 2 module that allows store owners to define shipping fees based on customer country, region, or state. This module enables flexible and customizable shipping rules to enhance checkout experience.
 
 ## Features
 - Configure shipping fees based on country and region.
 - Admin panel interface to manage country-based shipping groups.
-- Import shipping fee data via CSV.
-- Option to download the existing shipping fee CSV file.
 - Ability to truncate all records from the shipping fee grid.
 
 ## Installation
@@ -23,7 +22,7 @@
 ```
 
 ## Configuration
-- Navigate to **Admin Panel → Stores → Configuration → PinBlooms → Country Based Shipping** to manage settings.
+- Navigate to **Admin Panel → Country Based Fee → Manage Country Group** to manage shipping fee.
 - Define shipping fees per country and region.
 
 ## Usage
